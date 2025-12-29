@@ -1,0 +1,233 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+<main id="app">
+    <div class="containers">
+        <div class="banner">
+            <div class="arrow left-arrow">&#10094;</div>
+            <div class="arrow right-arrow">&#10095;</div>
+
+            <div class="banner-container">
+                <div class="content">
+                    <h1>
+                        HỆ THỐNG GÂY MÊ KÈM THỞ <br />
+                        <span>PASITHEC HEYER</span>
+                    </h1>
+                    <div class="divider"></div>
+                    <ul class="info-list">
+                        <li>
+                            <span class="arrow-bullet">===></span>
+                            Model: Pasithec
+                        </li>
+                        <li>
+                            <span class="arrow-bullet">===></span> Hãng
+                            sản xuất: HEYER
+                        </li>
+                        <li>
+                            <span class="arrow-bullet">===></span> Nước
+                            sản xuất: ĐỨC
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-detail">Chi tiết <span class="btn-arrow">></span></a>
+                </div>
+
+                <div class="image-section">
+                    <img src="~/assets/img/pasithec-machine.png"
+                         alt="Máy y tế" />
+                </div>
+
+                <div class="shape-right"></div>
+            </div>
+        </div>
+
+        <section class="brands">
+            <div class="brands-box">
+                <span class="brands-label">CÁC HÃNG SẢN XUẤT</span>
+
+                <button class="brands-arrow left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="brands-list">
+                    <div class="brands-item">
+                        <img src="~/assets/img/brand-weyer.png" />
+                    </div>
+                    <div class="brands-item">
+                        <img src="~/assets/img/brand-kalamed.png" />
+                    </div>
+                    <div class="brands-item">
+                        <img src="~/assets/img/brand-heyer.png" />
+                    </div>
+                    <div class="brands-item">
+                        <img src="~/assets/img/brand-neurowerk.png" />
+                    </div>
+                    <div class="brands-item">
+                        <img src="~/assets/img/brand-olidef.png" />
+                    </div>
+                    <div class="brands-item">
+                        <img src="~/assets/img/brand-daray.png" />
+                    </div>
+                </div>
+
+                <button class="brands-arrow right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== DANH MỤC THIẾT BỊ ===== -->
+        <section class="product-grid-full">
+            <div class="cat-item cyan">
+                <div class="cat-info">
+                    <span>THIẾT BỊ</span>
+                    <h3>CHẨN ĐOÁN HÌNH ẢNH</h3>
+                    <a href="#" class="btn-more">Xem thêm ></a>
+                </div>
+                <div class="cat-img">
+                    <img src="~/assets/img/chan-doan.png"
+                         alt="CHẨN ĐOÁN HÌNH ẢNH" />
+                </div>
+            </div>
+
+            <div class="cat-item purple">
+                <div class="cat-img">
+                    <img src="~/assets/img/hoi-suc.png"
+                         alt="HỒI SỨC CẤP CỨU" />
+                </div>
+                <div class="cat-info">
+                    <span>THIẾT BỊ</span>
+                    <h3>HỒI SỨC CẤP CỨU</h3>
+                    <a href="#" class="btn-more">Xem thêm ></a>
+                </div>
+            </div>
+
+            <div class="cat-item yellow">
+                <div class="cat-img">
+                    <img src="~/assets/img/phong-mo.png" alt="PHÒNG MỔ" />
+                </div>
+                <div class="cat-info">
+                    <span>THIẾT BỊ</span>
+                    <h3>PHÒNG MỔ</h3>
+                    <a href="#" class="btn-more">Xem thêm ></a>
+                </div>
+            </div>
+
+            <div class="cat-item steel">
+                <div class="cat-info">
+                    <span>THIẾT BỊ</span>
+                    <h3>CHUYÊN KHOA NỘI</h3>
+                    <a href="#" class="btn-more">Xem thêm ></a>
+                </div>
+                <div class="cat-img">
+                    <img src="~/assets/img/noi-khoa.png"
+                         alt="CHUYÊN KHOA NỘI" />
+                </div>
+            </div>
+
+            <div class="cat-item pink">
+                <div class="cat-info">
+                    <span>THIẾT BỊ</span>
+                    <h3>CHUYÊN KHOA SẢN - NHI</h3>
+                    <a href="#" class="btn-more">Xem thêm ></a>
+                </div>
+                <div class="cat-img">
+                    <img src="~/assets/img/san-nhi.png" alt="" />
+                </div>
+            </div>
+
+            <div class="cat-item blue">
+                <div class="cat-img">
+                    <img src="~/assets/img/phuc-hoi.png" alt="" />
+                </div>
+                <div class="cat-info">
+                    <span>THIẾT BỊ</span>
+                    <h3>PHỤC HỒI CHỨC NĂNG</h3>
+                    <a href="#" class="btn-more">Xem thêm ></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== KIẾN THỨC Y TẾ ===== -->
+        <section class="medical-news">
+            <div class="news-header">
+                <h2>KIẾN THỨC Y TẾ</h2>
+                <div class="news-dots">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-item">
+                    <div class="news-img">
+                        <img src="~/assets/img/new-1.png"
+                             alt="Heart health" />
+                    </div>
+                    <div class="news-text">
+                        <h3>
+                            Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                            để cứu tự cứu lấy mình
+                        </h3>
+                        <p>
+                            Bạn cảm thấy trong ngực có một luồng đau
+                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                            tay và cằm. Ngay lúc này, muốn đến...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-text">
+                        <h3>
+                            Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                            để cứu tự cứu lấy mình
+                        </h3>
+                        <p>
+                            Bạn cảm thấy trong ngực có một luồng đau
+                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                            tay và cằm. Ngay lúc này, muốn đến...
+                        </p>
+                    </div>
+                    <div class="news-img">
+                        <img src="~/assets/img/new-2.png"
+                             alt="Family health" />
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-img">
+                        <img src="assets/img/new-3.png" alt="Yoga" />
+                    </div>
+                    <div class="news-text">
+                        <h3>
+                            Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                            để cứu tự cứu lấy mình
+                        </h3>
+                        <p>
+                            Bạn cảm thấy trong ngực có một luồng đau
+                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                            tay và cằm. Ngay lúc này, muốn đến...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-text">
+                        <h3>
+                            Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                            để cứu tự cứu lấy mình
+                        </h3>
+                        <p>
+                            Bạn cảm thấy trong ngực có một luồng đau
+                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                            tay và cằm. Ngay lúc này, muốn đến...
+                        </p>
+                    </div>
+                    <div class="news-img">
+                        <img src="assets/img/new-4.png" alt="Doctors" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
