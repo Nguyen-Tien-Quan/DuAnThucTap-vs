@@ -1,0 +1,167 @@
+﻿/* ===== BANNER ===== */
+.project-banner {
+    height: 360px;
+    background: url("../img/bg-hospital-hall.png") center/cover no-repeat;
+    position: relative;
+    margin-top: 120px;
+}
+
+    .project-banner .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+    }
+
+.banner-content {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    padding: 0 16px;
+}
+
+    .banner-content h1 {
+        line-height: 1.6;
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .banner-content p {
+        line-height: 1.6;
+        font-size: 18px;
+        max-width: 700px;
+        opacity: 0.9;
+    }
+
+/* ===== BREADCRUMB ===== */
+.project-breadcrumb {
+    max-width: 1100px;
+    margin: 16px auto;
+    padding: 0 16px;
+    font-size: 14px;
+    color: #777;
+}
+
+    .project-breadcrumb a {
+        text-decoration: none;
+        color: #0a3d62;
+    }
+
+/* ===== LAYOUT ===== */
+.project-detail {
+    background: #f4f7fb;
+    padding: 50px 0 80px;
+}
+
+.project-layout {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 32px;
+}
+
+/* ===== MAIN ===== */
+.project-main {
+    background: #fff;
+    padding: 32px;
+    border-radius: 8px;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+    .project-meta i {
+        margin-right: 6px;
+        color: #0a3d62;
+    }
+
+.project-detail-img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 24px 0;
+}
+
+/* ===== CONTENT ===== */
+.project-content {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #222;
+}
+
+    .project-content p {
+        margin-bottom: 18px;
+    }
+
+    .project-content h2 {
+        font-size: 24px;
+        margin: 30px 0 14px;
+        color: #0a3d62;
+    }
+
+/* ===== HIGHLIGHT ===== */
+.project-highlight {
+    background: #f3f8fc;
+    border-left: 4px solid #0a3d62;
+    padding: 18px;
+    margin: 30px 0;
+    font-style: italic;
+}
+
+/* ===== BACK ===== */
+.project-back a {
+    font-weight: 600;
+    color: #0a3d62;
+    text-decoration: none;
+}
+
+/* ===== SIDEBAR ===== */
+.project-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sidebar-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+    .sidebar-box h3 {
+        font-size: 18px;
+        border-bottom: 2px solid #0a3d62;
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+    }
+
+    .sidebar-box ul li {
+        margin-bottom: 12px;
+    }
+
+        .sidebar-box ul li a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #111;
+            font-weight: 600;
+        }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+    }
+}

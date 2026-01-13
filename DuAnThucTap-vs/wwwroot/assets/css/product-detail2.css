@@ -1,0 +1,126 @@
+/* ================= PROJECT DETAIL ================= */
+.project-detail {
+    max-width: 1100px;
+    margin: 40px auto 80px;
+    padding: 0 16px;
+    background: #fff;
+}
+
+/* ===== TITLE ===== */
+.project-detail h1 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #111;
+    margin-bottom: 14px;
+}
+
+/* ===== META INFO ===== */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.project-meta span b {
+    color: #222;
+    margin-right: 4px;
+}
+
+/* ===== IMAGE ===== */
+.project-detail-img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 30px 0;
+}
+
+/* ===== CONTENT ===== */
+.project-content {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #222;
+}
+
+.project-content p {
+    margin-bottom: 20px;
+}
+
+.project-content h2 {
+    font-size: 24px;
+    margin: 32px 0 14px;
+    color: #0a3d62;
+}
+
+.project-content h3 {
+    font-size: 20px;
+    margin: 26px 0 12px;
+    color: #144b73;
+}
+
+.project-content ul {
+    padding-left: 22px;
+    margin-bottom: 20px;
+}
+
+.project-content ul li {
+    margin-bottom: 10px;
+}
+
+/* ===== IMAGE IN CONTENT ===== */
+.project-content img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 24px 0;
+}
+
+/* ===== QUOTE / HIGHLIGHT ===== */
+.project-highlight {
+    background: #f3f8fc;
+    border-left: 4px solid #0a3d62;
+    padding: 16px 18px;
+    margin: 28px 0;
+    font-style: italic;
+    color: #333;
+}
+
+/* ===== BACK LINK ===== */
+.project-back {
+    margin-top: 40px;
+}
+
+.project-back a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #0a3d62;
+}
+
+.project-back a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .project-detail h1 {
+        font-size: 26px;
+    }
+
+    .project-detail-img {
+        max-height: 320px;
+    }
+
+    .project-content {
+        font-size: 16px;
+    }
+}

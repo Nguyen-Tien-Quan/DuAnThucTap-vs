@@ -1,0 +1,109 @@
+﻿@model DuAnThucTap_vs.Models.News
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/news-detail.css" />
+}
+
+<div class="news-detail-page">
+
+    <!-- ===== BANNER ===== -->
+    <section class="news-banner">
+        <div class="container">
+            <h1>@Model.Title</h1>
+        </div>
+    </section>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="news-breadcrumb">
+        <div class="container">
+            <a href="/">Trang chủ</a> /
+            <a href="/Home/News">Tin tức</a> /
+            <span>@Model.Title</span>
+        </div>
+    </div>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="container">
+        <div class="news-layout">
+
+            <!-- MAIN ARTICLE -->
+            <article class="news-detail">
+
+                <div class="news-meta">
+                    <span>
+                        <i class="fa-regular fa-clock"></i>
+                        @(Model.CreatedDate?.ToString("dd/MM/yyyy") ?? "Đang cập nhật")
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+                        Ban biên tập TM Hitech
+                    </span>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Thumbnail))
+                {
+                    <div class="news-thumb">
+                        <img src="~/assets/img/@Model.Thumbnail" alt="@Model.Title" />
+                        <p class="news-image-caption">
+                            Hình minh họa cho bài viết
+                        </p>
+                    </div>
+                }
+
+
+                <div class="news-content">
+
+                    <!-- MỞ BÀI KIỂU BÁO -->
+                    <p class="news-lead">
+                        <strong>@Model.Title</strong> đang là một trong những nội dung
+                        được nhiều chuyên gia và đơn vị y tế quan tâm trong bối cảnh
+                        đổi mới công nghệ và nâng cao chất lượng chăm sóc sức khỏe.
+                    </p>
+
+                    @Html.Raw(Model.Content)
+
+                    <!-- DISCLAIMER -->
+                    <blockquote>
+                        Thông tin trong bài viết mang tính chất tham khảo chuyên môn,
+                        không thay thế cho tư vấn, chẩn đoán hoặc điều trị của bác sĩ.
+                    </blockquote>
+                </div>
+
+                <!-- SHARE -->
+                <div class="news-share">
+                    <span>Chia sẻ:</span>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-solid fa-link"></i>
+                </div>
+
+            </article>
+
+            <!-- SIDEBAR -->
+            <aside class="news-sidebar">
+
+                <div class="sidebar-box">
+                    <h3>Tin liên quan</h3>
+                    <ul class="related-news">
+                        <li><a href="#">Ứng dụng công nghệ cao trong y tế hiện đại</a></li>
+                        <li><a href="#">Giải pháp thiết bị phòng mổ tiên tiến</a></li>
+                        <li><a href="#">Xu hướng chuyển đổi số ngành y</a></li>
+                        <li><a href="#">Tiêu chuẩn mới trong thiết bị y tế</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-box contact-box">
+                    <h3>Liên hệ tư vấn</h3>
+                    <p><i class="fa-solid fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@tmhitech.vn</p>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+</div>

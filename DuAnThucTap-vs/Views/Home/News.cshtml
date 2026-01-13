@@ -1,8 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Giới thiệu - TM Hitech";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
+@model IEnumerable<DuAnThucTap_vs.Models.News>
 @section Styles {
     <link rel="stylesheet" href="~/assets/css/news.css" asp-append-version="true" />
 }
@@ -61,177 +63,89 @@
                     </div>
                 </div>
 
-                <!-- Các tin tức khác (5 thẻ giống nhau) -->
-                <div class="news-item">
-                    <div class="news-item__img">
-                        <a href="#">
-                            <img src="../assets/img/new-2.png"
-                                 alt="News Image" />
-                        </a>
-                    </div>
-                    <div class="news-item__info">
-                        <h3 class="news-item__title">
-                            <a href="#">
-                                Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                giây để cứu tự cứu lấy mình
-                            </a>
-                        </h3>
-                        <p class="news-item__date">
-                            <i class="fa-regular fa-clock"></i>
-                            23-02-2018
-                        </p>
-                        <p class="news-item__desc">
-                            Bạn cảm thấy trong ngực có một luồng đau
-                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
-                            tay và cằm...
-                        </p>
-                        <div class="news-item__action">
-                            <a href="#" class="btn-detail">
-                                CHI TIẾT
-                                <i class="fa-solid fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+             
+                @if (Model == null )
+                {
+                    <p>Chưa có tin tức nào để hiển thị.</p>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="news-item">
+                            <div class="news-item__img">
+                                <a href="#">
+                                    <img src="~/assets/img/@item.Thumbnail" alt="@item.Title" />
+                                </a>
+                            </div>
 
-                <div class="news-item">
-                    <div class="news-item__img">
-                        <a href="#">
-                            <img src="../assets/img/new-2.png"
-                                 alt="News Image" />
-                        </a>
-                    </div>
-                    <div class="news-item__info">
-                        <h3 class="news-item__title">
-                            <a href="#">
-                                Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                giây để cứu tự cứu lấy mình
-                            </a>
-                        </h3>
-                        <p class="news-item__date">
-                            <i class="fa-regular fa-clock"></i>
-                            23-02-2018
-                        </p>
-                        <p class="news-item__desc">
-                            Bạn cảm thấy trong ngực có một luồng đau
-                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
-                            tay và cằm...
-                        </p>
-                        <div class="news-item__action">
-                            <a href="#" class="btn-detail">
-                                CHI TIẾT
-                                <i class="fa-solid fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#">
+                                        @item.Title
+                                    </a>
+                                </h3>
 
-                <div class="news-item">
-                    <div class="news-item__img">
-                        <a href="#">
-                            <img src="../assets/img/new-2.png"
-                                 alt="News Image" />
-                        </a>
-                    </div>
-                    <div class="news-item__info">
-                        <h3 class="news-item__title">
-                            <a href="#">
-                                Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                giây để cứu tự cứu lấy mình
-                            </a>
-                        </h3>
-                        <p class="news-item__date">
-                            <i class="fa-regular fa-clock"></i>
-                            23-02-2018
-                        </p>
-                        <p class="news-item__desc">
-                            Bạn cảm thấy trong ngực có một luồng đau
-                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
-                            tay và cằm...
-                        </p>
-                        <div class="news-item__action">
-                            <a href="#" class="btn-detail">
-                                CHI TIẾT
-                                <i class="fa-solid fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    @if (item.CreatedDate.HasValue)
+                                    {
+                                        @item.CreatedDate.Value.ToString("dd/MM/yyyy")
+                                    }
+                                    else
+                                    {
+                                        @:Chưa có ngày
+                                    }
+                                </p>
 
-                <div class="news-item">
-                    <div class="news-item__img">
-                        <a href="#">
-                            <img src="../assets/img/new-2.png"
-                                 alt="News Image" />
-                        </a>
-                    </div>
-                    <div class="news-item__info">
-                        <h3 class="news-item__title">
-                            <a href="#">
-                                Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                giây để cứu tự cứu lấy mình
-                            </a>
-                        </h3>
-                        <p class="news-item__date">
-                            <i class="fa-regular fa-clock"></i>
-                            23-02-2018
-                        </p>
-                        <p class="news-item__desc">
-                            Bạn cảm thấy trong ngực có một luồng đau
-                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
-                            tay và cằm...
-                        </p>
-                        <div class="news-item__action">
-                            <a href="#" class="btn-detail">
-                                CHI TIẾT
-                                <i class="fa-solid fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                                <p class="news-item__desc">
+                                    @item.ShortDescription
+                                </p>
 
-                <div class="news-item">
-                    <div class="news-item__img">
-                        <a href="#">
-                            <img src="../assets/img/new-2.png"
-                                 alt="News Image" />
-                        </a>
-                    </div>
-                    <div class="news-item__info">
-                        <h3 class="news-item__title">
-                            <a href="#">
-                                Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                giây để cứu tự cứu lấy mình
-                            </a>
-                        </h3>
-                        <p class="news-item__date">
-                            <i class="fa-regular fa-clock"></i>
-                            23-02-2018
-                        </p>
-                        <p class="news-item__desc">
-                            Bạn cảm thấy trong ngực có một luồng đau
-                            nhói, hơn thế nữa nó bắt đầu lan đến cánh
-                            tay và cằm...
-                        </p>
-                        <div class="news-item__action">
-                            <a href="#" class="btn-detail">
-                                CHI TIẾT
-                                <i class="fa-solid fa-play"></i>
-                            </a>
+                                <div class="news-item__action">
+                                    <a href="~/Home/NewsDetail/@item.NewsId" class="btn-detail">
+                                        CHI TIẾT
+                                        <i class="fa-solid fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
 
-                <!-- Phân trang -->
-                <div class="pagination">
-                    <a href="#" class="page-num active">1</a>
-                    <a href="#" class="page-num">2</a>
-                    <a href="#" class="page-num">3</a>
-                    <a href="#" class="page-num">4</a>
-                    <a href="#" class="page-num">5</a>
-                    <a href="#" class="page-num">></a>
-                    <a href="#" class="page-num">»</a>
-                </div>
+                @if (ViewBag.TotalPages > 1)
+                {
+                    <div class="pagination">
+
+                        <!-- Trang trước -->
+                        @if (ViewBag.CurrentPage > 1)
+                        {
+                            <a class="page-num"
+                               href="/Home/News?page=@(ViewBag.CurrentPage - 1)">
+                                &laquo;
+                            </a>
+                        }
+
+                        <!-- Số trang -->
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            <a class="page-num @(i == ViewBag.CurrentPage ? "active" : "")"
+                               href="/Home/News?page=@i">
+                                @i
+                            </a>
+                        }
+
+                        <!-- Trang sau -->
+                        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                        {
+                            <a class="page-num"
+                               href="/Home/News?page=@(ViewBag.CurrentPage + 1)">
+                                &raquo;
+                            </a>
+                        }
+                    </div>
+                }
+
             </div>
 
             <!-- Sidebar bên phải -->
