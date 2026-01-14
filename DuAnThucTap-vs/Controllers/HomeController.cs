@@ -18,7 +18,34 @@ namespace DuAnThucTap_vs.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var featuredProduct = _context.Products
+        .Include(x => x.Brand)
+        .FirstOrDefault(x => x.IsFeatured);
+
+            var model = new HomeViewModel
+            {
+                Products = _context.Products
+                            .Where(x => (bool)x.IsActive)
+                            .OrderByDescending(x => x.ProductId)
+                            .Take(6)
+                            .ToList(),
+
+                Brands = _context.Brands
+                            .Where(x => (bool)x.IsActive)
+                            .ToList(),
+
+                Categories = _context.Categories
+                            .Where(x => (bool)x.IsActive)
+                            .ToList(),
+
+                News = _context.News
+                            .Where(x => (bool)x.IsActive)
+                            .OrderByDescending(x => x.CreatedDate)
+                            .Take(4)
+                            .ToList()
+            };
+
+            return View(model);
         }
 
         public IActionResult About()
@@ -73,21 +100,34 @@ namespace DuAnThucTap_vs.Controllers
         // 🔥 TRANG TIN TỨC – LOAD DB
         public IActionResult News(int page = 1)
         {
-            int pageSize = 5; // số tin / trang
+            int pageSize = 5;
 
-            var totalNews = _context.News.Count();
-
-            var newsList = _context.News
+            // Tin nổi bật (bài mới nhất)
+            var featuredNews = _context.News
+                .Where(n => n.IsActive == true)
                 .OrderByDescending(n => n.CreatedDate)
+                .FirstOrDefault();
+
+            // Danh sách tin còn lại
+            var query = _context.News
+                .Where(n => n.IsActive == true && n.NewsId != featuredNews.NewsId)
+                .OrderByDescending(n => n.CreatedDate);
+
+            int totalItems = query.Count();
+            int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            var newsList = query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
+            ViewBag.FeaturedNews = featuredNews;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = (int)Math.Ceiling((double)totalNews / pageSize);
+            ViewBag.TotalPages = totalPages;
 
             return View(newsList);
         }
+
 
 
         public IActionResult Recruitment()
@@ -107,6 +147,10 @@ namespace DuAnThucTap_vs.Controllers
             return View(news); // 👉 Views/Home/NewsDetail.cshtml
         }
 
+        public IActionResult Apply()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

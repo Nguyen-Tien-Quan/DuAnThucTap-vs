@@ -34,8 +34,8 @@
                         <img src="~/assets/img/@featured.ImageUrl" alt="@featured.ProjectName" />
                     </div>
                     <div class="featured-desc">
-                        <h3>@featured.ProjectName</h3>
-                        <p>@featured.ShortDescription</p>
+                        <h3 class="line-clamp">@featured.ProjectName</h3>
+                        <p class="line-clamp">@featured.ShortDescription</p>
                         <a href="~/Home/ProjectDetail/@featured.ProjectId" class="btn-detail">
                             CHI TIẾT →
                         </a>
@@ -51,7 +51,7 @@
                     <a href="~/Home/ProjectDetail/@item.ProjectId">
                         <div class="project-item">
                             <img src="~/assets/img/@item.ImageUrl" alt="@item.ProjectName" />
-                            <p>@item.ProjectName</p>
+                            <p class="line-clamp">@item.ProjectName</p>
                         </div>
                     </a>
                 }

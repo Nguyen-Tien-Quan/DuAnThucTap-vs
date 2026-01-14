@@ -23,6 +23,7 @@ public partial class Product
 
     public string? Application { get; set; }
 
+    public bool IsFeatured { get; set; }
     public bool? IsActive { get; set; }
 
     public virtual Brand? Brand { get; set; }

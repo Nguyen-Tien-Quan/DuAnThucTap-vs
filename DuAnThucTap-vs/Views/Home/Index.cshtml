@@ -1,7 +1,7 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @model List<News>
 }
 
 <main id="app">
@@ -48,26 +48,18 @@
                 <button class="brands-arrow left">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
+
                 <div class="brands-list">
-                    <div class="brands-item">
-                        <img src="~/assets/img/brand-weyer.png" alt="Weyer" />
-                    </div>
-                    <div class="brands-item">
-                        <img src="~/assets/img/brand-kalamed.png" alt="Kalamed" />
-                    </div>
-                    <div class="brands-item">
-                        <img src="~/assets/img/brand-heyer.png" alt="Heyer" />
-                    </div>
-                    <div class="brands-item">
-                        <img src="~/assets/img/brand-neurowerk.png" alt="Neurowerk" />
-                    </div>
-                    <div class="brands-item">
-                        <img src="~/assets/img/brand-olidef.png" alt="Olidef" />
-                    </div>
-                    <div class="brands-item">
-                        <img src="~/assets/img/brand-daray.png" alt="Daray" />
-                    </div>
+                    @foreach (var brand in Model.Brands)
+                    {
+                        <div class="brands-item">
+                            <img src="~/assets/img/@brand.LogoUrl"
+                                 alt="@brand.BrandName"
+                                 title="@brand.BrandName" />
+                        </div>
+                    }
                 </div>
+
                 <button class="brands-arrow right">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
@@ -76,75 +68,33 @@
 
         <!-- DANH MỤC THIẾT BỊ -->
         <section class="product-grid-full">
-            <div class="cat-item cyan">
-                <div class="cat-info">
-                    <span>THIẾT BỊ</span>
-                    <h3>CHẨN ĐOÁN HÌNH ẢNH</h3>
-                    <a href="./pages/danhsachsp.html" class="btn-more">Xem thêm ></a>
-                </div>
-                <div class="cat-img">
-                    <img src="~/assets/img/chan-doan.png"
-                         alt="Chẩn đoán hình ảnh" />
-                </div>
-            </div>
+            @{
+                // Danh sách màu đã có sẵn trong CSS của bạn
+                string[] colorClasses = { "cyan", "purple", "yellow", "steel", "pink", "blue" };
+                var index = 0;
+            }
 
-            <div class="cat-item purple">
-                <div class="cat-img">
-                    <img src="~/assets/img/hoi-suc.png"
-                         alt="Hồi sức cấp cứu" />
-                </div>
-                <div class="cat-info">
-                    <span>THIẾT BỊ</span>
-                    <h3>HỒI SỨC CẤP CỨU</h3>
-                    <a href="./pages/danhsachsp.html" class="btn-more">Xem thêm ></a>
-                </div>
-            </div>
+            @foreach (var cat in Model.Categories)
+            {
+                <div class="cat-item @colorClasses[index % colorClasses.Length]">
+                    <div class="cat-info">
+                        <span>THIẾT BỊ</span>
+                        <h3>@cat.CategoryName</h3>
+                        <a href="/Product/Category?slug=@cat.Slug" class="btn-more">
+                            Xem thêm >
+                        </a>
+                    </div>
 
-            <div class="cat-item yellow">
-                <div class="cat-img">
-                    <img src="~/assets/img/phong-mo.png" alt="Phòng mổ" />
+                    <div class="cat-img">
+                        <img src="~/assets/img/@cat.ImageUrl" alt="@cat.CategoryName" />
+                    </div>
                 </div>
-                <div class="cat-info">
-                    <span>THIẾT BỊ</span>
-                    <h3>PHÒNG MỔ</h3>
-                    <a href="./pages/danhsachsp.html" class="btn-more">Xem thêm ></a>
-                </div>
-            </div>
 
-            <div class="cat-item steel">
-                <div class="cat-info">
-                    <span>THIẾT BỊ</span>
-                    <h3>CHUYÊN KHOA NỘI</h3>
-                    <a href="./pages/danhsachsp.html" class="btn-more">Xem thêm ></a>
-                </div>
-                <div class="cat-img">
-                    <img src="~/assets/img/noi-khoa.png"
-                         alt="Chuyên khoa nội" />
-                </div>
-            </div>
-
-            <div class="cat-item pink">
-                <div class="cat-info">
-                    <span>THIẾT BỊ</span>
-                    <h3>CHUYÊN KHOA SẢN - NHI</h3>
-                    <a href="./pages/danhsachsp.html" class="btn-more">Xem thêm ></a>
-                </div>
-                <div class="cat-img">
-                    <img src="~/assets/img/san-nhi.png" alt="Chuyên khoa Sản - Nhi" />
-                </div>
-            </div>
-
-            <div class="cat-item blue">
-                <div class="cat-img">
-                    <img src="~/assets/img/phuc-hoi.png" alt="Phục hồi chức năng" />
-                </div>
-                <div class="cat-info">
-                    <span>THIẾT BỊ</span>
-                    <h3>PHỤC HỒI CHỨC NĂNG</h3>
-                    <a href="~/pages/danhsachsp.html" class="btn-more">Xem thêm ></a>
-                </div>
-            </div>
+                index++;
+            }
         </section>
+
+
 
         <!-- KIẾN THỨC Y TẾ -->
         <section class="medical-news">
@@ -203,47 +153,20 @@
 
             <!-- Phần desktop -->
             <div class="news-grid">
-                <a href="./pages/details.html">
-                    <div class="news-item">
-                        <div class="news-img">
-                            <img src="~/assets/img/new-1.png" alt="Kiến thức y tế 1" />
+                @foreach (var item in Model.News)
+                {
+                    <a href="/Home/NewsDetail/@item.NewsId">
+                        <div class="news-item">
+                            <div class="news-img">
+                                <img src="~/assets/img/@item.Thumbnail" alt="@item.Title" />
+                            </div>
+                            <div class="news-text">
+                                <h3>@item.Title</h3>
+                                <p>@item.ShortDescription</p>
+                            </div>
                         </div>
-                        <div class="news-text">
-                            <h3>Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để tự cứu lấy mình</h3>
-                            <p>Bạn cảm thấy trong ngực có một luồng đau nhói, hơn thế nữa nó bắt đầu lan đến cánh tay và cằm. Ngay lúc này, muốn đến...</p>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="news-item">
-                    <div class="news-text">
-                        <h3>Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để tự cứu lấy mình</h3>
-                        <p>Bạn cảm thấy trong ngực có một luồng đau nhói, hơn thế nữa nó bắt đầu lan đến cánh tay và cằm. Ngay lúc này, muốn đến...</p>
-                    </div>
-                    <div class="news-img">
-                        <img src="~/assets/img/new-2.png" alt="Kiến thức y tế 2" />
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-img">
-                        <img src="~/assets/img/new-3.png" alt="Kiến thức y tế 3" />
-                    </div>
-                    <div class="news-text">
-                        <h3>Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để tự cứu lấy mình</h3>
-                        <p>Bạn cảm thấy trong ngực có một luồng đau nhói, hơn thế nữa nó bắt đầu lan đến cánh tay và cằm. Ngay lúc này, muốn đến...</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-text">
-                        <h3>Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để tự cứu lấy mình</h3>
-                        <p>Bạn cảm thấy trong ngực có một luồng đau nhói, hơn thế nữa nó bắt đầu lan đến cánh tay và cằm. Ngay lúc này, muốn đến...</p>
-                    </div>
-                    <div class="news-img">
-                        <img src="~/assets/img/new-4.png" alt="Kiến thức y tế 4" />
-                    </div>
-                </div>
+                    </a>
+                }
             </div>
         </section>
     </div>

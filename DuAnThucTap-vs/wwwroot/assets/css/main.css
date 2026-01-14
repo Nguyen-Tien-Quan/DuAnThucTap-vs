@@ -672,6 +672,7 @@
     background-color: rgba(3, 169, 244, 0.8);
 }
 
+
 /* Nội dung bên trong (Chữ và Ảnh máy) */
 .cat-info {
     position: relative;
@@ -702,6 +703,11 @@
     background: rgba(255, 255, 255, 0.2);
     transition: 0.3s;
 }
+
+.cat-item.reverse {
+    flex-direction: row-reverse;
+}
+
 
 .btn-more:hover {
     background: #fff;
