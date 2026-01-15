@@ -3,12 +3,13 @@
 .container {
     width: 1200px;
     max-width: 100%;
-    margin: 160px auto 0;
+    margin: 40px auto 0;
     padding: 0 16px;
 }
 
 /* ================= BANNER ================= */
 .category-banner {
+    margin-top: var(--margin-top-head);
     position: relative;
     height: 300px;
     background: linear-gradient(135deg, #0ea5e9, #0369a1);
@@ -43,7 +44,7 @@
 
 /* ================= FILTER ================= */
 .product-category {
-    padding: 50px 0;
+    padding: 20px 0 50px;
 }
 
 .category-filter {
@@ -165,6 +166,47 @@
     .btn-detail:hover {
         color: #0ea5e9;
     }
+
+.no-product {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+    .no-product i {
+        font-size: 48px;
+        color: #999;
+        margin-bottom: 16px;
+    }
+
+    .no-product h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .no-product p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+.btn-contact {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #0a5ea8;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    .btn-contact:hover {
+        background: #084a85;
+    }
+
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1100px) {

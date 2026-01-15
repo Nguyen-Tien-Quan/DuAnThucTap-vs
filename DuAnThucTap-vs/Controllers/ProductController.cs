@@ -27,7 +27,7 @@ namespace DuAnThucTap_vs.Controllers
             if (category == null)
                 return NotFound();
 
-            return View(category);
+            return View("~/Views/Home/Category.cshtml", category);
         }
 
         // ===============================
@@ -43,7 +43,7 @@ namespace DuAnThucTap_vs.Controllers
             if (product == null)
                 return NotFound();
 
-            return View(product);
+            return View("~/Views/Home/Product-detail.cshtml", product);
         }
     }
 }

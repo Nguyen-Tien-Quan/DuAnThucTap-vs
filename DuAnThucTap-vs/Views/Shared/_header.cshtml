@@ -16,8 +16,8 @@
 
         <div class="head-hotline">
             <div class="head-lang">
-                <span class="fi fi-vn"></span>
-                <span class="fi fi-us"></span>
+                <img class="fi" src="../assets/img/VietNam.png" alt="" />
+                <img class="fi" src="../assets/img/ncanh.png" alt="" />
             </div>
 
             <div class="head-phone">
@@ -83,10 +83,13 @@
                                 <li><a href="#">Máy đo điện não</a></li>
                                 <li><a href="#">Máy đo chức năng hô hấp</a></li>
                             </ul>
-                            <a href="#" class="view-all">
-                                Xem tất cả
-                                <i class="fa-solid fa-caret-down"></i>
+                        @*  <a href="/Product/Category?slug=@cat.Slug" class="btn-more">
+                               Xem thêm >
+                            </a> *@
+                            <a asp-controller="Product" asp-action="Category" class="view-all">
+                                Xem tất cả <i class="fa-solid fa-caret-down"></i>
                             </a>
+                            
                         </div>
 
                         <!-- Cột 3 -->

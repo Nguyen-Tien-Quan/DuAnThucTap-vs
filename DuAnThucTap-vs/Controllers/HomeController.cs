@@ -147,6 +147,35 @@ namespace DuAnThucTap_vs.Controllers
             return View(news); // 👉 Views/Home/NewsDetail.cshtml
         }
 
+        [Route("category/{slug}")]
+        public IActionResult Category(string slug)
+        {
+            var category = _context.Categories
+                .Include(c => c.Products)
+                    .ThenInclude(p => p.Brand)
+                .FirstOrDefault(c => c.Slug == slug);
+
+            if (category == null)
+                return NotFound();
+
+            return View(category);
+        }
+
+
+        [Route("product/{id}")]
+        public IActionResult ProductDetail(int id)
+        {
+            var product = _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Category)
+                .FirstOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+                return NotFound();
+
+            return View("Product-detail", product);
+        }
+
         public IActionResult Apply()
         {
             return View();

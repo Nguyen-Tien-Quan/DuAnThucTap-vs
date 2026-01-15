@@ -180,7 +180,7 @@
         height: 38px;
         overflow: hidden;
         display: -webkit-box !important;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
     }
 
